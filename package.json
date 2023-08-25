@@ -7,7 +7,7 @@
       "build": "next build",
       "start": "ts-node src/index.ts",
       "lint": "next lint",
-      "test": "jest",
+      "test": "jest --coverage --verbose",
       "test:watch": "jest --watch",
       "migrate": "ts-node src/migrate.ts"
    },
