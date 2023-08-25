@@ -1,7 +1,7 @@
 export const FixedCategories = [
   { id: "A1B2", name: "Fruits And Vegetables", color: "#A8E4A0" },
   { id: "C3D4", name: "Canned Goods", color: "#444" },
-  { id: "E5F6", name: "Dairy", color: "#fffff5" },
+  { id: "E5F6", name: "Dairy", color: "#ffdab5" },
   { id: "G7H8", name: "Meat", color: "#FF6666" },
   { id: "I9J0", name: "Fish And Seafood", color: "#99CCFF" },
   { id: "K1L2", name: "Condiments And Spices", color: "#FFCC99" },
