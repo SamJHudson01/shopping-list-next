@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./AddItemModal.css";
+import { FixedCategories } from "../../utils/fixedCategories";
 
 const AddItemModal = ({ onCloseModal, onUpdate }) => {
   const [itemName, setItemName] = useState("");
