@@ -3,7 +3,7 @@ import "./Category.css";
 
 const Category = ({ id, name, color }) => {
   return (
-    <div className="category">
+    <div className="category" style={{ borderBottom: `3px solid ${color}` }}>
       <p className="category-name">{name}</p>
     </div>
   );
