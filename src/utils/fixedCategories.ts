@@ -1,0 +1,15 @@
+export const FixedCategories = {
+  FruitsAndVegetables: "#A8E4A0",
+  CannedGoods: "#444",
+  Dairy: "#fffff5",
+  Meat: "#FF6666",
+  FishAndSeafood: "#99CCFF",
+  CondimentsAndSpices: "#FFCC99",
+  Snacks: "#FF99CC",
+  BreadAndBakery: "#66CCCC",
+  PastaAndRice: "#CC99FF",
+  FrozenFoods: "#FF6666",
+  MedicinesAndPersonalCare: "#99FF99",
+  HouseholdAndCleaningSupplies: "#FFCC33",
+  BabyItems: "#99CC99",
+};
