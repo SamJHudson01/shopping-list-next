@@ -1,10 +1,10 @@
 import React from "react";
 import "./Category.css";
 
-const Category = ({ category, id }) => {
+const Category = ({ id, name, color }) => {
   return (
     <div className="category">
-      <p className="category-name">Test Category</p>
+      <p className="category-name">{name}</p>
     </div>
   );
 };
