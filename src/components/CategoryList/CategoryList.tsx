@@ -1,4 +1,5 @@
 import React from "react";
+import { FixedCategories } from "../../utils/fixedCategories";
 import Category from "../Category/Category";
 
 const CategoryList = () => {
