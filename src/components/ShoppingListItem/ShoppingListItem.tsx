@@ -3,12 +3,12 @@ import "./ShoppingListItem.css";
 import { ShoppingListItem as ShoppingListItemProps } from "../../interfaces/ShoppingListItemInterface";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { useLongPress } from "@uidotdev/usehooks";
+import { FixedCategories } from "../../utils/fixedCategories";
 
 interface ShoppingListItemPropsWithDelete extends ShoppingListItemProps {
   onDelete: (id: number) => void;
   onUpdate: () => void;
   onEdit: (item: ShoppingListItemProps) => void;
-  categoryColor: string;
 }
 
 function ShoppingListItem({
@@ -21,7 +21,7 @@ function ShoppingListItem({
   onDelete,
   onUpdate,
   onEdit,
-  categoryColor,
+  category,
 }: ShoppingListItemPropsWithDelete) {
   async function handleToggleCompleted(id, toggleCompleted = true) {
     const response = await fetch(`/api/items/${id}`, {
@@ -56,12 +56,17 @@ function ShoppingListItem({
         completedat,
         createdat,
         updatedat,
+        category,
       });
     },
     {
       threshold: 500,
     }
   );
+
+  const categoryColor = FixedCategories.find(
+    (category) => category.id === category.id
+  )?.color;
 
   return (
     <div
