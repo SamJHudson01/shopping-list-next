@@ -8,6 +8,7 @@ interface ShoppingListItemPropsWithDelete extends ShoppingListItemProps {
   onDelete: (id: number) => void;
   onUpdate: () => void;
   onEdit: (item: ShoppingListItemProps) => void;
+  categoryColor: string;
 }
 
 function ShoppingListItem({
@@ -20,6 +21,7 @@ function ShoppingListItem({
   onDelete,
   onUpdate,
   onEdit,
+  categoryColor,
 }: ShoppingListItemPropsWithDelete) {
   async function handleToggleCompleted(id, toggleCompleted = true) {
     const response = await fetch(`/api/items/${id}`, {
@@ -69,7 +71,11 @@ function ShoppingListItem({
       }`}
       onClick={() => handleToggleCompleted(id)}
     >
-      <div className="shopping-list-item__category-circle"></div>
+      Copy code
+      <div
+        className="shopping-list-item__category-circle"
+        style={{ backgroundColor: categoryColor }}
+      ></div>
       <p className="shopping-list-item__quantity">
         {quantity ? quantity.toString() : "0"}
       </p>
