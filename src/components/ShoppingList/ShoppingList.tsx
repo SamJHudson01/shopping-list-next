@@ -75,6 +75,7 @@ function ShoppingList() {
               onDelete={handleDelete}
               onUpdate={fetchItems}
               onEdit={openEditModal}
+              category={item.category}
             />
           ))}
         </div>

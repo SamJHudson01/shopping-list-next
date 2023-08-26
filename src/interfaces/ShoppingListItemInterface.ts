@@ -5,4 +5,5 @@ export interface ShoppingListItem {
   completedat?: Date | null;
   createdat: Date;
   updatedat: Date;
+  category: string;
 }
