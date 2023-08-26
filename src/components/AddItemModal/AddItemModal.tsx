@@ -79,9 +79,11 @@ const AddItemModal = ({ onCloseModal, onUpdate }) => {
               Category
             </label>
             <select className="modal__input" id="category" name="category">
-              <option value="Electronics">Electronics</option>
-              <option value="Groceries">Groceries</option>
-              <option value="Clothing">Clothing</option>
+              {FixedCategories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
             </select>
             <button
               className={
