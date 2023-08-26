@@ -21,7 +21,7 @@ function ShoppingListItem({
   onDelete,
   onUpdate,
   onEdit,
-  category,
+  category_id,
 }: ShoppingListItemPropsWithDelete) {
   async function handleToggleCompleted(id, toggleCompleted = true) {
     const response = await fetch(`/api/items/${id}`, {
@@ -56,7 +56,7 @@ function ShoppingListItem({
         completedat,
         createdat,
         updatedat,
-        category,
+        category_id,
       });
     },
     {

@@ -15,12 +15,20 @@ export const GET = async () => {
 };
 
 export const POST = async (request) => {
-  const { name: itemName, quantity: itemQuantity } = await request.json();
+  const {
+    name: itemName,
+    quantity: itemQuantity,
+    category_id: itemCategory,
+  } = await request.json();
+  console.log("itemName:", itemName);
+  console.log("itemQuantity:", itemQuantity);
+  console.log("itemCategory:", itemCategory);
   const newItem: NewShoppingListItem = {
     name: itemName,
     quantity: itemQuantity,
     createdat: new Date(),
     updatedat: new Date(),
+    category_id: itemCategory,
   };
 
   const addedItem = await addItem(newItem);

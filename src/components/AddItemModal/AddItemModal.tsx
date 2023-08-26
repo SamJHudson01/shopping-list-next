@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AddItemModal.css";
 import { FixedCategories } from "../../utils/fixedCategories";
 
 const AddItemModal = ({ onCloseModal, onUpdate }) => {
   const [itemName, setItemName] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [categoryValue, setCategoryValue] = useState(null);
 
   const handleItemNameChange = (e) => {
     setItemName(e.target.value);
@@ -13,6 +14,11 @@ const AddItemModal = ({ onCloseModal, onUpdate }) => {
   const handleQuantityChange = (e) => {
     setQuantity(e.target.value);
     console.log("Quantity:", quantity);
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategoryValue(e.target.value);
+    console.log("Category:", categoryValue);
   };
 
   const handleSubmit = async (e) => {
@@ -25,7 +31,12 @@ const AddItemModal = ({ onCloseModal, onUpdate }) => {
     if (!inputValue) {
       return;
     }
-    const data = { name: inputValue, quantity: quantityValue };
+    const categoryValue = e.target.querySelector("select").value;
+    const data = {
+      name: inputValue,
+      quantity: quantityValue,
+      category: categoryValue,
+    };
     console.log("Data:", data);
     const response = await fetch("/api/items", {
       method: "POST",
@@ -40,6 +51,12 @@ const AddItemModal = ({ onCloseModal, onUpdate }) => {
     onUpdate();
     onCloseModal();
   };
+
+  // useEffect(() => {
+  //   setItemName("");
+  //   setQuantity(1);
+  //   setCategoryValue(null);
+  // }, [categoryValue]);
 
   return (
     <div className="modal">
@@ -78,7 +95,12 @@ const AddItemModal = ({ onCloseModal, onUpdate }) => {
             <label className="modal__input-label" htmlFor="category">
               Category
             </label>
-            <select className="modal__input" id="category" name="category">
+            <select
+              className="modal__input"
+              id="category"
+              name="category"
+              onChange={handleCategoryChange}
+            >
               {FixedCategories.map((category) => (
                 <option key={category.id} value={category.id}>
                   {category.name}
