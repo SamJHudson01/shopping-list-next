@@ -9,10 +9,10 @@ export const getItems = async (): Promise<ShoppingListItem[]> => {
 export const addItem = async (
   item: Omit<ShoppingListItem, "id" | "completedat">
 ): Promise<ShoppingListItem> => {
-  const { name, quantity, createdat, updatedat } = item;
+  const { name, quantity, createdat, updatedat, category_id } = item;
   const result = await pool.query(
-    `INSERT INTO shopping_list_items (name, quantity, createdat, updatedat) VALUES ($1, $2, $3, $4) RETURNING *`,
-    [name, quantity, createdat, updatedat]
+    `INSERT INTO shopping_list_items (name, quantity, createdat, updatedat, category_id) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+    [name, quantity, createdat, updatedat, category_id]
   );
   return result.rows[0];
 };
