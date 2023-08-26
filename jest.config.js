@@ -16,6 +16,7 @@ module.exports = {
     '!<rootDir>/src/**/*.spec.ts',
     '!<rootDir>/src/**/*.test.ts',
     '!<rootDir>/src/**/*.d.ts'
+    
   ],
   collectCoverage: true,
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
