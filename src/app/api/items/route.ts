@@ -32,9 +32,3 @@ export const POST = async (request) => {
 
   return new NextResponse(JSON.stringify(addedItem));
 };
-
-export const PUT = async (request) => {
-  const { id } = await request.json();
-  const updatedItem = await updateItemCompletion(id);
-  return new NextResponse(JSON.stringify(updatedItem));
-};

@@ -1,6 +1,6 @@
 import { addItem } from "../../models/shoppingListItemDAO";
 
-import { GET } from "../../app/api/items/route";
+import { GET, POST } from "../../app/api/items/route";
 
 describe("/api/items", () => {
   test("returns a list of items please", async () => {
@@ -43,5 +43,28 @@ describe("/api/items", () => {
         expect.objectContaining(expectedItem2),
       ])
     );
+  });
+
+  test("adds a new item to the database and returns it", async () => {
+    const newItem1 = {
+      name: "Apples",
+      quantity: 3,
+      createdat: new Date(),
+      updatedat: new Date(),
+      category_id: "Q7R8",
+    };
+
+    const response = await POST({
+      json: () => newItem1,
+    });
+
+    const expectedItem1 = {
+      name: "Apples",
+      quantity: 3,
+      category_id: "Q7R8",
+    };
+
+    const data = await response.json();
+    expect(data).toEqual(expect.objectContaining(expectedItem1));
   });
 });
