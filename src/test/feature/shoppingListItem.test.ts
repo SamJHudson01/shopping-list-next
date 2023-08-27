@@ -9,6 +9,7 @@ describe("/api/items", () => {
       quantity: 3,
       createdat: new Date(),
       updatedat: new Date(),
+      category_id: "Q7R8",
     };
 
     const newItem2 = {
@@ -16,6 +17,7 @@ describe("/api/items", () => {
       quantity: 5,
       createdat: new Date(),
       updatedat: new Date(),
+      category_id: "Q7R8",
     };
     await addItem(newItem1);
     await addItem(newItem2);
@@ -23,11 +25,13 @@ describe("/api/items", () => {
     const expectedItem1 = {
       name: "Apples",
       quantity: 3,
+      category_id: "Q7R8",
     };
 
     const expectedItem2 = {
       name: "Pears",
       quantity: 5,
+      category_id: "Q7R8",
     };
 
     const response = await GET();
