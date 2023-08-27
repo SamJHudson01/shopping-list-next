@@ -20,9 +20,6 @@ export const POST = async (request) => {
     quantity: itemQuantity,
     category_id: itemCategory,
   } = await request.json();
-  console.log("itemName:", itemName);
-  console.log("itemQuantity:", itemQuantity);
-  console.log("itemCategory:", itemCategory);
   const newItem: NewShoppingListItem = {
     name: itemName,
     quantity: itemQuantity,

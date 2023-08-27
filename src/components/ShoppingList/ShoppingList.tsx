@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, Suspense } from "react";
-import AddItemForm from "../AddItemForm/AddItemForm";
 import "./ShoppingList.css";
 import ShoppingListItem from "../ShoppingListItem/ShoppingListItem";
 import AddItemButton from "../AddItemButton/AddItemButton";
@@ -50,7 +49,6 @@ function ShoppingList() {
       if (!response.ok) {
         throw new Error("Failed to delete item");
       }
-      console.log(response);
       fetchItems();
     } catch (error) {
       console.log("An error occurred when trying to delete this item:", error);
@@ -65,7 +63,7 @@ function ShoppingList() {
         <div className="shopping-list__item-container">
           {items.map((item) => (
             <ShoppingListItem
-              key={item.id} // This is the added key prop
+              key={item.id}
               name={item.name}
               quantity={item.quantity}
               createdat={new Date(item.createdat)}
@@ -75,7 +73,7 @@ function ShoppingList() {
               onDelete={handleDelete}
               onUpdate={fetchItems}
               onEdit={openEditModal}
-              category_id={item.category}
+              category_id={item.category_id}
             />
           ))}
         </div>

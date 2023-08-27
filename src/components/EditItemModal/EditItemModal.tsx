@@ -28,8 +28,6 @@ const EditItemModal = ({ onCloseModal, onUpdate, item }) => {
       quantity: Number(quantity),
     };
 
-    console.log("Data:", data);
-
     const response = await fetch(`/api/items/${item.id}`, {
       method: "PUT",
       headers: {
