@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import "./AddItemModal.css";
 import { FixedCategories } from "../../utils/fixedCategories";
 
@@ -13,12 +13,10 @@ const AddItemModal = ({ onCloseModal, onUpdate }) => {
 
   const handleQuantityChange = (e) => {
     setQuantity(e.target.value);
-    console.log("Quantity:", quantity);
   };
 
   const handleCategoryChange = (e) => {
     setCategoryValue(e.target.value);
-    console.log("Category:", categoryValue);
   };
 
   const handleSubmit = async (e) => {
@@ -35,9 +33,8 @@ const AddItemModal = ({ onCloseModal, onUpdate }) => {
     const data = {
       name: inputValue,
       quantity: quantityValue,
-      category: categoryValue,
+      category_id: categoryValue,
     };
-    console.log("Data:", data);
     const response = await fetch("/api/items", {
       method: "POST",
       headers: {
@@ -46,7 +43,6 @@ const AddItemModal = ({ onCloseModal, onUpdate }) => {
       body: JSON.stringify(data),
     });
     const result = await response.json();
-    console.log("Result:", result);
     input.value = "";
     onUpdate();
     onCloseModal();

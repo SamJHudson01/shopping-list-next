@@ -1,3 +1,4 @@
+//TODO: change foreign key to category_id
 export const up = `
 CREATE TABLE IF NOT EXISTS shopping_list_items (
     id SERIAL PRIMARY KEY,

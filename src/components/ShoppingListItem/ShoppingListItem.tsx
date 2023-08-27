@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ShoppingListItem.css";
 import { ShoppingListItem as ShoppingListItemProps } from "../../interfaces/ShoppingListItemInterface";
 import { RiDeleteBinFill } from "react-icons/ri";
@@ -39,7 +39,6 @@ function ShoppingListItem({
 
     try {
       const data = await response.json();
-      console.log("Data:", data);
       onUpdate();
       return data;
     } catch (err) {
@@ -65,7 +64,7 @@ function ShoppingListItem({
   );
 
   const categoryColor = FixedCategories.find(
-    (category) => category.id === category.id
+    (category) => category_id === category.id
   )?.color;
 
   return (
@@ -76,7 +75,6 @@ function ShoppingListItem({
       }`}
       onClick={() => handleToggleCompleted(id)}
     >
-      Copy code
       <div
         className="shopping-list-item__category-circle"
         style={{ backgroundColor: categoryColor }}
